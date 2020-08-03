@@ -1,4 +1,4 @@
-# hmplayer
+# Amusic
 
 ## Project setup
 ```
@@ -17,3 +17,5 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 模仿教学视频作品，练习一下Vue
