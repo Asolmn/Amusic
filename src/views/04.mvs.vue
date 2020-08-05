@@ -5,22 +5,22 @@
         <span class="section-type">地区:</span>
         <ul class="tabs-wrap">
           <li class="tab">
-            <span class="title active">全部</span>
+            <span class="title" :class="{active:area=='全部'}" @click="area='全部'">全部</span>
           </li>
           <li class="tab">
-            <span class="title">内地</span>
+            <span class="title" :class="{active:area=='内地'}" @click="area='内地'">内地</span>
           </li>
           <li class="tab">
-            <span class="title">港台</span>
+            <span class="title" :class="{active:area=='港台'}" @click="area='港台'">港台</span>
           </li>
           <li class="tab">
-            <span class="title">欧美</span>
+            <span class="title" :class="{active:area=='欧美'}" @click="area='欧美'">欧美</span>
           </li>
           <li class="tab">
-            <span class="title">日本</span>
+            <span class="title" :class="{active:area=='日本'}" @click="area='日本'">日本</span>
           </li>
           <li class="tab">
-            <span class="title">韩国</span>
+            <span class="title" :class="{active:area=='韩国'}" @click="area='韩国'">韩国</span>
           </li>
         </ul>
       </div>
@@ -28,19 +28,19 @@
         <span class="type-type">类型:</span>
         <ul class="tabs-wrap">
           <li class="tab">
-            <span class="title ">全部</span>
+            <span class="title"  :class="{active:type=='全部'}" @click="type='全部'">全部</span>
           </li>
           <li class="tab">
-            <span class="title">官方版</span>
+            <span class="title"  :class="{active:type=='官方版'}" @click="type='官方版'">官方版</span>
           </li>
           <li class="tab">
-            <span class="title active">原声</span>
+            <span class="title"  :class="{active:type=='原声'}" @click="type='原声'">原声</span>
           </li>
           <li class="tab">
-            <span class="title">现场版</span>
+            <span class="title"  :class="{active:type=='现场版'}" @click="type='现场版'">现场版</span>
           </li>
           <li class="tab">
-            <span class="title">网易出品</span>
+            <span class="title"  :class="{active:type=='网易出品'}" @click="type='网易出品'">网易出品</span>
           </li>
         </ul>
       </div>
@@ -48,13 +48,13 @@
         <span class="order-type">排序:</span>
         <ul class="tabs-wrap">
           <li class="tab">
-            <span class="title ">上升最快</span>
+            <span class="title" :class="{active:order=='上升最快'}" @click="order='上升最快'">上升最快</span>
           </li>
           <li class="tab">
-            <span class="title">最热</span>
+            <span class="title" :class="{active:order=='最热'}" @click="order='最热'">最热</span>
           </li>
           <li class="tab">
-            <span class="title active">最新</span>
+            <span class="title" :class="{active:order=='最新'}" @click="order='最新'">最新</span>
           </li>
         </ul>
       </div>
@@ -63,82 +63,17 @@
     <!-- 推荐MV -->
     <div class="mvs">
       <div class="items">
-        <div class="item" @click="toMv(10)">
+        <div class="item" v-for="(item,index) in list" :key="index">
           <div class="img-wrap">
-            <img src="../assets/mvCover.jpg" alt="" />
+            <img :src="item.cover" alt="" />
             <div class="num-wrap">
               <div class="iconfont icon-play"></div>
-              <div class="num">9912</div>
+              <div class="num">{{ item.playCount }}</div>
             </div>
           </div>
           <div class="info-wrap">
-            <div class="name">HEYNA</div>
-            <div class="singer">余恩</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-wrap">
-            <img src="../assets/mvCover.jpg" alt="" />
-            <div class="num-wrap">
-              <div class="iconfont icon-play"></div>
-              <div class="num">9912</div>
-            </div>
-          </div>
-          <div class="info-wrap">
-            <div class="name">HEYNA</div>
-            <div class="singer">余恩</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-wrap">
-            <img src="../assets/mvCover.jpg" alt="" />
-            <div class="num-wrap">
-              <div class="iconfont icon-play"></div>
-              <div class="num">9912</div>
-            </div>
-          </div>
-          <div class="info-wrap">
-            <div class="name">HEYNA</div>
-            <div class="singer">余恩</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-wrap">
-            <img src="../assets/mvCover.jpg" alt="" />
-            <div class="num-wrap">
-              <div class="iconfont icon-play"></div>
-              <div class="num">9912</div>
-            </div>
-          </div>
-          <div class="info-wrap">
-            <div class="name">HEYNA</div>
-            <div class="singer">余恩</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-wrap">
-            <img src="../assets/mvCover.jpg" alt="" />
-            <div class="num-wrap">
-              <div class="iconfont icon-play"></div>
-              <div class="num">9912</div>
-            </div>
-          </div>
-          <div class="info-wrap">
-            <div class="name">HEYNA</div>
-            <div class="singer">余恩</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-wrap">
-            <img src="../assets/mvCover.jpg" alt="" />
-            <div class="num-wrap">
-              <div class="iconfont icon-play"></div>
-              <div class="num">9912</div>
-            </div>
-          </div>
-          <div class="info-wrap">
-            <div class="name">HEYNA</div>
-            <div class="singer">余恩</div>
+            <div class="name">{{ item.name }}</div>
+            <div class="singer">{{ item.artistName }}</div>
           </div>
         </div>
       </div>
@@ -158,6 +93,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'mvs',
   data() {
@@ -167,15 +103,68 @@ export default {
       // 页码
       page: 1,
       // 页容量
-      limit: 10
+      limit: 8,
+      // 地区
+      area: '全部',
+      // 类型
+      type: '全部',
+      // 排序
+      order: '上升最快',
+      list: []
     };
   },
+  watch:{
+    // 监听分类数据的改变
+    area(){
+      this.page=1
+      this.getList()
+    },
+    type(){
+      this.page=1
+      this.getList()
+    },
+    order(){
+      this.page=1
+      this.getList()
+    }
+  },
+  created(){
+    this.getList()
+  },
   methods: {
-    toMv(id) {
-      this.$router.push(`/mv?id=${id}`);
+    // 获取列表MV数据
+    getList(){
+      axios({
+        url: 'https://autumnfish.cn/mv/all',
+        method: 'get',
+        params: {
+          area: this.area,
+          type: this.type,
+          order: this.order,
+          limit: this.limit,
+          // 偏移值，分页(页码-1)*数量
+          offset: (this.page-1)*this.limit
+        }
+      }).then(res=>{
+        console.log(res)
+        this.list = res.data.data
+        // 处理播放次数显示
+        for(let i=0;i<this.list.length;i++){
+          if(this.list[i].playCount>100000){
+            this.list[i].playCount = parseInt(this.list[i].playCount/10000)+'万'
+          }
+        }
+
+        // 保存总条数
+        if(res.data.count){
+          this.total = res.data.count
+        }
+      })
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+      this.page = val
+      this.getList()
     }
   }
 };
