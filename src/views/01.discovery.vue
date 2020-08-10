@@ -12,7 +12,7 @@
         推荐歌单
       </h3>
       <div class="items">
-        <div class="item" v-for="(item,index) in list" :key="index">
+        <div class="item" v-for="(item,index) in list" :key="index" @click="toPlaylist(item.id)">
           <div class="img-wrap">
             <div class="desc-wrap">
               <span class="desc">{{ item.copywriter }}</span>
@@ -142,7 +142,11 @@ export default {
         this.$parent.musicUrl = url
         console.log(this.$parent.musicUrl)
       })
-    }
+    },
+    // 推荐歌单
+    toPlaylist(id){
+      this.$router.push(`/playlist?d=${id}`)
+    }    
   }
 };
 </script>

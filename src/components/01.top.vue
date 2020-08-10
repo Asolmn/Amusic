@@ -2,13 +2,13 @@
   <div class="top-container">
     <div class="left-box">
       <div class="icon-wrapper">
-        <span class="iconfont icon-home"></span>
+        <span class="iconfont icon-home" @click="perhome()"></span>
         <span class="iconfont icon-sami-select"></span>
         <span class="iconfont icon-full-screen"></span>
       </div>
       <div class="history-wrapper">
-        <span class="iconfont icon-arrow-lift"></span>
-        <span class="iconfont icon-arrow-right"></span>
+        <span class="iconfont icon-arrow-lift" @click="perback()"></span>
+        <span class="iconfont icon-arrow-right" @click="pergo()"></span>
       </div>
     </div>
     <div class="right-box">
@@ -46,7 +46,15 @@
         }else{
           this.$router.push('/result?q='+this.inputValue)
         }
-
+      },
+      perhome(){
+        this.$router.push('/discovery')
+      },
+      pergo(){
+        this.$router.go(1)
+      },
+      perback(){
+        this.$router.go(-1)
       }
     }
   }

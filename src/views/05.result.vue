@@ -235,7 +235,7 @@ export default {
       })
     },
     toPlaylist(id){
-      this.$router.push(`/playlist?q=${id}`)
+      this.$router.push(`/playlist?d=${id}`)
     }
   }
 };

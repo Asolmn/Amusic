@@ -18,12 +18,12 @@
         <th>时长</th>
       </thead>
       <tbody>
-        <tr class="el-table__row" v-for="(item,index) in lists" :key="index">
+        <tr class="el-table__row" v-for="(item,index) in lists" :key="index" @dblclick="playMusic(item.id)">
           <td>{{ index+1 }}</td>
           <td>
             <div class="img-wrap">
               <img :src="item.album.picUrl" alt="" />
-              <span class="iconfont icon-play" @click="playMusic(item.id)"></span>
+              <span class="iconfont icon-play" ></span>
             </div>
           </td>
           <td>
