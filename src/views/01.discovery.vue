@@ -48,7 +48,7 @@
     <div class="mvs">
       <h3 class="title">推荐MV</h3>
       <div class="items">
-        <div class="item" v-for="(item,index) in mvs" :key="index">
+        <div class="item" v-for="(item,index) in mvs" :key="index" @click="toMV(item.id)">
           <div class="img-wrap">
             <img :src="item.picUrl" alt="" />
             <span class="iconfont icon-play"></span>
@@ -146,6 +146,10 @@ export default {
     // 推荐歌单
     toPlaylist(id){
       this.$router.push(`/playlist?d=${id}`)
+    },
+    // 路由到MV页面
+    toMV(id){
+      this.$router.push(`/mv?m=${id}`)
     }    
   }
 };

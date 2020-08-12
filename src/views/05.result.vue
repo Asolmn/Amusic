@@ -55,7 +55,7 @@
       </el-tab-pane>
       <el-tab-pane label="MV" name="mv">
         <div class="items mv">
-          <div class="item" v-for="(item,index) in mv" :key="index">
+          <div class="item" v-for="(item,index) in mv" :key="index" @click="toMV(item.id)">
             <div class="img-wrap">
               <img :src="item.cover" alt="" />
               <span class="iconfont icon-play"></span>
@@ -234,8 +234,13 @@ export default {
         console.log(this.$parent.musicUrl)
       })
     },
+    // 路由到歌单页面
     toPlaylist(id){
       this.$router.push(`/playlist?d=${id}`)
+    },
+    // 路由到MV页面
+    toMV(id){
+      this.$router.push(`/mv?m=${id}`)
     }
   }
 };

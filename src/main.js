@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+// 日期时间过滤
+import moment from 'moment/moment'
+
+Vue.filter('moment', function (value, formatString) {
+  formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
+  // return moment(value).format(formatString); // value可以是普通日期 20170723
+  return moment.unix(value).format(formatString); // 这是时间戳转时间
+});
 
 // 导入 Element_ui
 import ElementUI from 'element-ui'

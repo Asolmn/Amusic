@@ -81,7 +81,7 @@
                   <span class="name">{{ item.beReplied[0].user.nickname }}：</span>
                   <span class="comment">{{ item.beReplied[0].content }}</span>
                 </div>
-                <div class="date">2020-02-12 17:26:11</div>
+                <div class="date">{{ item.time | moment }}</div>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@
                   <span class="name">{{ item.beReplied[0].user.nickname }}：</span>
                   <span class="comment">{{ item.beReplied[0].content }}</span>
                 </div>
-                <div class="date">2020-02-12 17:26:11</div>
+                <div class="date">{{ item.time | moment }}</div>
               </div>
             </div>
 
@@ -160,6 +160,7 @@ export default {
       this.playlist = res.data.playlist
       this.tracks = res.data.playlist.tracks
 
+      // 获取歌曲的时间长度
       for(let i=0;i<this.tracks.length;i++){
         let tracksid = this.tracks[i].id
         axios({
@@ -169,7 +170,7 @@ export default {
             keywords: tracksid
             }
           }).then(res=>{
-            console.log(res)
+            // console.log(res)
             let min = parseInt(res.data.result.songs[0].duration/1000/60)
             let sec = parseInt(res.data.result.songs[0].duration/1000%60)
             if(min<10){
@@ -194,7 +195,7 @@ export default {
         limit: 10
       }
     }).then(res=>{
-      // console.log(res)
+      console.log(res)
       this.hotComment = res.data.hotComments
       this.hotCount = res.data.total
     })
@@ -209,7 +210,7 @@ export default {
         offset: 0
       }
     }).then(res=>{
-      // console.log(res)
+      console.log(res)
       // 总个数
       this.total = res.data.total
       // 评论数据
